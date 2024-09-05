@@ -20,6 +20,7 @@ group :development, :test do
   gem 'debug', require: 'debug/prelude'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'haml_lint'
   gem 'haml-rails'
   gem 'html2haml'
   gem 'rspec-rails'
