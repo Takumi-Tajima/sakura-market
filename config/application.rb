@@ -38,5 +38,11 @@ module SakuraMarket
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.skip_routes true
+      g.test_framework nil
+      g.helper false
+    end
   end
 end
