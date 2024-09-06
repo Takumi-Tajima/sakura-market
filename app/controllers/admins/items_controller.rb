@@ -1,4 +1,4 @@
-class ItemsController < Admins::ApplicationController
+class Admins::ItemsController < Admins::ApplicationController
   before_action :set_item, only: %i[show edit update destroy]
 
   def index
