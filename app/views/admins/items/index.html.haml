@@ -1,27 +1,6 @@
-%h1 Listing items
-
-%table
-  %thead
+%tbody
+  - @items.each do |item|
     %tr
-      %th Name
-      %th Price
-      %th Description
-      %th Hidden
-      %th
-      %th
-      %th
-
-  %tbody
-    - @items.each do |item|
-      %tr
-        %td= item.name
-        %td= item.price
-        %td= item.description
-        %td= item.hidden
-        %td= link_to 'Show', item
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Item', new_item_path
+      %td= item.name
+      %td= item.price
+      %td= item.description
