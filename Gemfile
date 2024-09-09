@@ -8,7 +8,7 @@ gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'jsbundling-rails'
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.5'
 gem 'puma', '>= 5.0'
 gem 'simple_form'
 gem 'sprockets-rails'
