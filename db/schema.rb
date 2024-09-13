@@ -24,10 +24,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_06_063045) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.integer "price", null: false
+    t.string "name", null: false
+    t.integer "price", default: 0, null: false
     t.text "description", default: "", null: false
-    t.boolean "hidden", default: false, null: false
+    t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
