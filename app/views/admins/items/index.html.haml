@@ -9,6 +9,7 @@
         価格
       %th
         説明
+      %td
   %tbody
     - @items.each do |item|
       %tr
@@ -19,4 +20,4 @@
         %td
           = item.description
         %td
-          = link_to '編集', admins_item_path(item)
+          = link_to '編集', edit_admins_item_path(item)

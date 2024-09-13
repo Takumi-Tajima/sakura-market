@@ -1,11 +1,8 @@
 class Admins::ItemsController < Admins::ApplicationController
-  before_action :set_item, only: %i[show edit update destroy]
+  before_action :set_item, only: %i[edit update destroy]
 
   def index
     @items = Item.default_order
-  end
-
-  def show
   end
 
   def new
