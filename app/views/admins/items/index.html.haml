@@ -1,9 +1,23 @@
-= link_to '商品を追加', new_admins_item_path
+= link_to '商品を追加', new_admins_item_path, class: 'btn btn-primary mb-3'
 
-.card
-  .card-body
-  - @items.each do |item|
-    = link_to admins_item_path(item), class: 'text-decoration-none' do
-      = item.name
-      = item.price
-      = item.description
+%table.table
+  %thead
+    %tr
+      %th
+        名前
+      %th
+        価格
+      %th
+        説明
+      %td
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td
+          = item.name
+        %td
+          = item.price
+        %td
+          = item.description
+        %td
+          = link_to '編集', edit_admins_item_path(item)

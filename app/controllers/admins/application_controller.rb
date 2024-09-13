@@ -1,3 +1,3 @@
-class Admins::ApplicationController < ActionController::Base
+class Admins::ApplicationController < ApplicationController
   before_action :authenticate_admin!
 end
