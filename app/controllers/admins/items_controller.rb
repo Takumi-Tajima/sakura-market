@@ -16,7 +16,7 @@ class Admins::ItemsController < Admins::ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      redirect_to @item, notice: 'Item was successfully created.'
+      redirect_to admins_items_path, notice: '商品の登録が完了しました'
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +24,7 @@ class Admins::ItemsController < Admins::ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to @item, notice: 'Item was successfully updated.', status: :see_other
+      redirect_to admins_items_path, notice: '商品の編集が完了しました', status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class Admins::ItemsController < Admins::ApplicationController
 
   def destroy
     @item.destroy!
-    redirect_to items_url, notice: 'Item was successfully destroyed.', status: :see_other
+    redirect_to admins_items_path, notice: '商品の削除が完了しました', status: :see_other
   end
 
   private
