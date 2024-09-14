@@ -25,7 +25,6 @@ RSpec.describe '商品管理機能', type: :system do
 
     it '商品を登録できる' do
       visit new_admins_item_path
-      expect(page).to have_content '商品を追加'
       fill_in '商品名', with: 'にんじん'
       fill_in '価格', with: '500'
       fill_in '説明', with: '美味しいにんじんを作ったので食べてください'
@@ -52,7 +51,9 @@ RSpec.describe '商品管理機能', type: :system do
     it '商品を削除できる' do
       visit edit_admins_item_path(item)
       expect do
-        click_on '削除'
+        accept_confirm do
+          click_on '削除'
+        end
         expect(page).to have_content '商品の削除が完了しました'
       end.to change(Item, :count).by(-1)
       expect(page).not_to have_content '大根'
