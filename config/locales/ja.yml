@@ -1,6 +1,11 @@
 ja:
   activerecord:
     attributes:
+      item:
+        name: 商品名
+        price: 価格
+        description: 商品説明
+        published: 公開ステータス
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -42,7 +47,7 @@ ja:
       locked: アカウントはロックされています。
       not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
       timeout: セッションがタイムアウトしました。もう一度ログインしてください。
-      unauthenticated: ログインもしくはアカウント登録してください。
+      unauthenticated: ログインをしてください
       unconfirmed: メールアドレスの本人確認が必要です。
     mailer:
       confirmation_instructions:

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  # TODO: テスト用のルーティングなのであとで消す
-  root 'hello#index'
+  root 'admins/items#index'
+  namespace :admins do
+    resources :items, only: %i[index new create edit update destroy]
+  end
   devise_for :admins
 end
