@@ -1,0 +1,8 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-danger-subtle
+  .container-fluid.justify-content-between
+    %a.navbar-brand
+      さくらマーケット
+    - if user_signed_in?
+      = button_to 'ログアウト', destroy_admin_session_path, class: 'btn btn-outline-danger', method: :delete
+    - else
+      = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'

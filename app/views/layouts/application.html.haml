@@ -17,6 +17,8 @@
     %header.mb-2
       - if admin_signed_in?
         = render 'layouts/admins_header'
+      - else
+        = render 'layouts/users_header'
     .container
       = render 'layouts/flash'
       = yield
