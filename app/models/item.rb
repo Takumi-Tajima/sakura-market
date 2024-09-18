@@ -5,4 +5,10 @@ class Item < ApplicationRecord
   validates :description, length: { maximum: 200 }
 
   scope :default_order, -> { order(created_at: :desc) }
+
+  TAX = 1.10
+
+  def price_with_tax
+    (price * TAX)
+  end
 end
