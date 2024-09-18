@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  root 'users/items#index'
   devise_for :users
   scope module: :users do
-    resources :items
+    resources :items, only: %i[index]
   end
   namespace :admins do
     root 'items#index'
