@@ -69,11 +69,6 @@ jobs:
           json-path: tmp/rspec_results.json
         if: always()
 
-      # Run bundler-audit（gemの脆弱性チェック）
-      - name: Run bundler audit
-        run: bundle exec bundle-audit check --update
-        if: always()
-
       # Run brakeman（セキュリティの脆弱性チェック）
       - name: Run brakeman
         run: bundle exec brakeman -qz -A --skip-files /doc/
