@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe '商品管理機能', type: :system do
   context 'ログインしてない時' do
     it '商品一覧にアクセスするとログイン画面に遷移する' do
-      visit root_path
+      visit admins_root_path
       expect(page).to have_content 'ログインをしてください'
       expect(page).to have_current_path new_admin_session_path
     end
@@ -18,7 +18,7 @@ RSpec.describe '商品管理機能', type: :system do
     end
 
     it '商品の一覧が閲覧できる' do
-      visit root_path
+      visit admins_root_path
       expect(page).to have_content '大根'
       expect(page).to have_content '200'
     end
@@ -38,7 +38,7 @@ RSpec.describe '商品管理機能', type: :system do
     end
 
     it '商品を編集できる' do
-      visit root_path
+      visit admins_root_path
       click_on '編集'
       fill_in '商品名', with: 'きのこ'
       fill_in '価格', with: '350'
