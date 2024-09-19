@@ -9,6 +9,6 @@ class Item < ApplicationRecord
   TAX = 1.10
 
   def price_with_tax
-    (price * TAX)
+    (BigDecimal(price.to_s) * BigDecimal(TAX.to_s)).to_f
   end
 end
