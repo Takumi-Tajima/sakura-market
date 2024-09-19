@@ -7,5 +7,5 @@
           .card-body
             %h3.h5.card-title= item.name
             .card-text
-              = t('items.price_with_tax', price: number_to_currency(item.price_with_tax, unit: "¥", precision: 0))
+              = p_with_tax(item)
 
