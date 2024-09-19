@@ -7,14 +7,14 @@ RSpec.describe '商品管理機能', type: :system do
     it '商品の一覧ページを閲覧できること' do
       visit root_path
       expect(page).to have_content '大根'
-      expect(page).to have_content '¥220'
+      expect(page).to have_content '¥220(税込)'
     end
 
     it '商品の詳細ページを閲覧できること' do
       visit root_path
       click_on '大根'
       expect(page).to have_content '大根'
-      expect(page).to have_content '¥220'
+      expect(page).to have_content '¥220(税込)'
       expect(page).to have_content '美味しい大根だよ'
     end
   end

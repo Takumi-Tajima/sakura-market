@@ -20,7 +20,7 @@ RSpec.describe '商品管理機能', type: :system do
     it '商品の一覧が閲覧できる' do
       visit admins_root_path
       expect(page).to have_content '大根'
-      expect(page).to have_content '¥220'
+      expect(page).to have_content '¥220(税込)'
     end
 
     it '商品を登録できる' do
@@ -33,7 +33,7 @@ RSpec.describe '商品管理機能', type: :system do
         expect(page).to have_content '商品の登録が完了しました'
       end.to change(Item, :count).by(1)
       expect(page).to have_content 'にんじん'
-      expect(page).to have_content '¥550'
+      expect(page).to have_content '¥550(税込)'
       expect(page).to have_content '美味しいにんじんを作ったので食べてください'
     end
 
