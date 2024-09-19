@@ -6,6 +6,6 @@
     %h2.mt-2
       = @item.name
     .mt-2
-      = number_to_currency(@item.price_with_tax, unit: "¥", precision: 0)
+      = t('items.price_with_tax', price: number_to_currency(@item.price_with_tax, unit: "¥", precision: 0))
     .mt-2
       = @item.description
