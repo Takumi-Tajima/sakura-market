@@ -25,6 +25,7 @@ RSpec.describe '商品管理機能', type: :system do
 
     it '商品を登録できる' do
       visit new_admins_item_path
+      attach_file '商品画像', Rails.root.join('spec/fixtures/images/test.png')
       fill_in '商品名', with: 'にんじん'
       fill_in '価格', with: '500'
       fill_in '説明', with: '美味しいにんじんを作ったので食べてください'
@@ -35,6 +36,11 @@ RSpec.describe '商品管理機能', type: :system do
       expect(page).to have_content 'にんじん'
       expect(page).to have_content '¥550(税込)'
       expect(page).to have_content '美味しいにんじんを作ったので食べてください'
+      item_row = page.find('table tr', text: 'にんじん')
+      within(item_row) do
+        click_on '詳細'
+      end
+      expect(page).to have_selector("img[src*='test.png']")
     end
 
     it '商品を編集できる' do
