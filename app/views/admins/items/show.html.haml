@@ -1,5 +1,7 @@
 .row.mt-4
   .col-md-6
+    = image_tag @item.item_img.variant(:display)
+  .col-md-6
     %h2.mt-2
       = @item.name
     .mt-2
