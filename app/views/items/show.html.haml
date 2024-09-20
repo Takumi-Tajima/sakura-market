@@ -1,0 +1,11 @@
+-# TODO:リンクを変える
+= link_to 'カートに追加', root_path, class: 'btn btn-primary'
+
+.row.mt-4
+  .col-md-6
+    %h2.mt-2
+      = @item.name
+    .mt-2
+      = p_with_tax(@item)
+    .mt-2
+      = @item.description

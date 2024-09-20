@@ -1,11 +1,11 @@
 .row.row-cols-1.row-cols-md-3.row-cols-lg-4
   - @items.each do |item|
     .col.mb-5.text-decoration-none
-      -# TODO:item_pathに変更する
-      = link_to items_path, class: 'text-decoration-none' do
+      = link_to item_path(item), class: 'text-decoration-none' do
         .card.shadow-lg
           -# TODO:画像が入る予定
           .card-body
             %h3.h5.card-title= item.name
             .card-text
-              = item.price
+              = p_with_tax(item)
+
