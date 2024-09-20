@@ -1,5 +1,5 @@
 = simple_form_for([:admins, item]) do |f|
-  = f.file_field :item_img
+  = f.input :item_img, as: :file
   = f.input :name
   = f.input :price
   = f.input :description
