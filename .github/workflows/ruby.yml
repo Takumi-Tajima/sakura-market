@@ -39,7 +39,8 @@ jobs:
 
       - name: Install packages
         run: |
-          sudo apt-get -yqq install libgbm1 libvips-dev
+          sudo apt-get -yqq install libgbm1
+          sudo apt-get -yqq install libvips
           
 
       - uses: actions/setup-node@v4
