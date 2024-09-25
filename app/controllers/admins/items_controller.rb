@@ -1,8 +1,11 @@
 class Admins::ItemsController < Admins::ApplicationController
-  before_action :set_item, only: %i[edit update destroy]
+  before_action :set_item, only: %i[show edit update destroy]
 
   def index
     @items = Item.default_order
+  end
+
+  def show
   end
 
   def new
@@ -42,6 +45,6 @@ class Admins::ItemsController < Admins::ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :published)
+    params.require(:item).permit(:name, :price, :description, :published, :item_img)
   end
 end
