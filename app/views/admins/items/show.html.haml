@@ -10,3 +10,7 @@
       = @item.description
 
 = link_to '編集', edit_admins_item_path(@item), class: 'btn btn-primary mt-3'
+
+= link_to '上へ', move_higher_admins_item_path(@item)
+= @item.position
+= link_to '下へ', move_lower_admins_item_path(@item)

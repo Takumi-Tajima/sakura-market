@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  acts_as_list
   has_one_attached :item_img do |attachable|
     attachable.variant :display, resize_to_limit: [350, 450]
     attachable.variant :thumb, resize_to_limit: [300, 300]
