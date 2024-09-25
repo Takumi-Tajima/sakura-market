@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :price, numericality: true
   validates :description, length: { maximum: 200 }
 
-  scope :default_order, -> { order(created_at: :desc) }
+  scope :default_order, -> { order(:position) }
 
   TAX = 1.10
 
