@@ -9,7 +9,8 @@
         価格
       %th
         説明
-      %td
+      %th
+      %th
   %tbody
     - @items.each do |item|
       %tr
@@ -19,5 +20,9 @@
           = price_with_tax(item)
         %td
           = item.description
+        %td
+          - if item.display?
+            %span.badge.bg-secondary
+              公開中
         %td
           = link_to '詳細', admins_item_path(item)

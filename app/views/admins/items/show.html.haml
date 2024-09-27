@@ -4,6 +4,9 @@
   .col-md-6
     %h2.mt-2
       = @item.name
+    - if @item.display?
+      .t-2.badge.bg-secondary
+        公開中
     .mt-2
       = price_with_tax(@item)
     .mt-2
