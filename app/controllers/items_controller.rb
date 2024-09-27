@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.default_order
+    @items = Item.where(display: true).default_order
   end
 
   def show
