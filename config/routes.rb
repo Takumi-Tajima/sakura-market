@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     root 'items#index'
     resources :items, only: %i[index show new create edit update destroy] do
       member do
-        get :move_higher, to: 'items/positions#move_higher'
-        get :move_lower, to: 'items/positions#move_lower'
+        patch :move_higher, to: 'items/positions#move_higher'
+        patch :move_lower, to: 'items/positions#move_lower'
       end
     end
   end
