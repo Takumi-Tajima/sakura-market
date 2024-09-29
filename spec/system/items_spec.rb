@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe '商品管理機能', type: :system do
   context 'ログインしてない時' do
-    let!(:item) { create(:item, name: '大根', price: '200', description: '美味しい大根だよ') }
+    let!(:item) { create(:item, name: '大根', price: '200', description: '美味しい大根だよ', display: true) }
 
     it '商品の一覧ページを閲覧できること' do
       visit root_path

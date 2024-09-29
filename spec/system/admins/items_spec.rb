@@ -11,7 +11,7 @@ RSpec.describe '商品管理機能', type: :system do
 
   context 'ログインしてる時' do
     let(:admin) { create(:admin) }
-    let!(:item) { create(:item, name: '大根', price: '200', description: '美味しい大根だよ') }
+    let!(:item) { create(:item, name: '大根', price: '200', description: '美味しい大根だよ', display: true) }
 
     before do
       sign_in admin

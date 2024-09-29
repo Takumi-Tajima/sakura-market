@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe '商品の並び順', type: :system do
   let(:admin) { create(:admin) }
-  let!(:item1) { create(:item, name: '大根') }
-  let!(:item2) { create(:item, name: 'にんじん') }
+  let!(:item1) { create(:item, name: '大根', display: true) }
+  let!(:item2) { create(:item, name: 'にんじん', display: true) }
 
   before do
     sign_in admin
