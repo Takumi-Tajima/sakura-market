@@ -65,5 +65,15 @@ RSpec.describe '商品管理機能', type: :system do
       end.to change(Item, :count).by(-1)
       expect(page).not_to have_content '大根'
     end
+
+    it '商品の表示を非表示にできること' do
+      visit edit_admins_item_path(item)
+      uncheck '公開ステータス'
+      click_on '登録'
+      visit root_path
+      expect(page).not_to have_content '大根'
+      visit item_path(item)
+      expect(page).to have_content '商品が見つかりません'
+    end
   end
 end
