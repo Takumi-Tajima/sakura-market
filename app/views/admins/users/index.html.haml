@@ -1,0 +1,20 @@
+%table.table
+  %thead
+    %tr
+      %th
+        メール
+      %th
+        パスワード
+      %th
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          = user.email
+        %td
+          = user.password
+        %td
+          = link_to '編集', edit_admins_user_path(user)
+        %td
+          = button_to '削除', admins_user_path(user), method: :delete, data: { turbo_confirm: '本当に削除しますか' }
