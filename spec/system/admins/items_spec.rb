@@ -46,7 +46,7 @@ RSpec.describe '商品管理機能', type: :system do
     it '商品を編集できる' do
       visit root_path
       expect(page).to have_content '大根'
-      visit edit_admins_item_path(item)
+      click_on '編集'
       fill_in '商品名', with: 'きのこ'
       fill_in '価格', with: '350'
       fill_in '説明', with: 'このきのこはすごく美味しいです'
