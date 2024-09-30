@@ -10,6 +10,8 @@
       %th
         説明
       %td
+      %td
+      %td
   %tbody
     - @items.each do |item|
       %tr
@@ -21,3 +23,7 @@
           = item.description
         %td
           = link_to '詳細', admins_item_path(item)
+        %td
+          = link_to '↑', move_higher_admins_item_path(item), data: { "turbo-method": :patch }
+        %td
+          = link_to '↓', move_lower_admins_item_path(item), data: { "turbo-method": :patch }
