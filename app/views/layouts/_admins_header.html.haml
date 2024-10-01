@@ -3,3 +3,4 @@
     %a.navbar-brand
       管理者画面：さくらマーケット
     = button_to 'ログアウト', destroy_admin_session_path, class: 'btn btn-outline-danger', method: :delete
+    = link_to 'ユーザー一覧', admins_users_path, class: 'text-decoration-none'

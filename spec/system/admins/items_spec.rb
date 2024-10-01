@@ -11,7 +11,7 @@ RSpec.describe '商品管理機能', type: :system do
 
   context 'ログインしてる時' do
     let(:admin) { create(:admin) }
-    let!(:item) { create(:item, name: '大根', price: '200', description: '美味しい大根だよ') }
+    let!(:item) { create(:item, name: '大根', price: '200', description: '美味しい大根だよ', display: true) }
 
     before do
       sign_in admin
@@ -44,9 +44,10 @@ RSpec.describe '商品管理機能', type: :system do
     end
 
     it '商品を編集できる' do
-      visit root_path
+      visit admins_root_path
+      click_on '詳細'
       expect(page).to have_content '大根'
-      visit edit_admins_item_path(item)
+      click_on '編集'
       fill_in '商品名', with: 'きのこ'
       fill_in '価格', with: '350'
       fill_in '説明', with: 'このきのこはすごく美味しいです'
@@ -64,6 +65,21 @@ RSpec.describe '商品管理機能', type: :system do
         expect(page).to have_content '商品の削除が完了しました'
       end.to change(Item, :count).by(-1)
       expect(page).not_to have_content '大根'
+    end
+
+    it '公開ステータスを確認できること' do
+      visit admins_root_path
+      item_row = page.find('table tr', text: '大根')
+      within(item_row) do
+        expect(page).to have_content '公開中'
+        click_on '詳細'
+      end
+      expect(page).to have_content '公開中'
+      visit edit_admins_item_path(item)
+      uncheck '公開ステータス'
+      click_on '登録'
+      expect(page).not_to have_content '公開中'
+      expect(page).to have_content '非公開'
     end
   end
 end

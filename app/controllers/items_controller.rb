@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.default_order
+    @items = Item.visible.default_order
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.visible.find(params[:id])
   end
 end

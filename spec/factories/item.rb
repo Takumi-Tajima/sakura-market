@@ -3,6 +3,6 @@ FactoryBot.define do
     name { Faker::JapaneseMedia::Naruto.character }
     price { Faker::Number.number(digits: 4) }
     description { Faker::Lorem.sentence(word_count: 25) }
-    published { false }
+    display { false }
   end
 end

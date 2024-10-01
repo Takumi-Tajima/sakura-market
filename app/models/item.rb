@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  acts_as_list
   has_one_attached :item_img do |attachable|
     attachable.variant :display, resize_to_limit: [350, 450]
     attachable.variant :thumb, resize_to_limit: [300, 300]
@@ -9,7 +10,8 @@ class Item < ApplicationRecord
   validates :price, numericality: true
   validates :description, length: { maximum: 200 }
 
-  scope :default_order, -> { order(created_at: :desc) }
+  scope :default_order, -> { order(:position) }
+  scope :visible, -> { where(display: true) }
 
   TAX = 1.10
 

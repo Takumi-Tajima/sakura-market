@@ -9,7 +9,8 @@
         価格
       %th
         説明
-      %td
+      %th
+      %th
   %tbody
     - @items.each do |item|
       %tr
@@ -20,4 +21,15 @@
         %td
           = item.description
         %td
+          - if item.display?
+            %span.badge.bg-primary
+              公開中
+          - else
+            %span.badge.bg-secondary
+              非公開
+        %td
           = link_to '詳細', admins_item_path(item)
+        %td
+          = link_to '↑', move_higher_admins_item_path(item), data: { "turbo-method": :patch }
+        %td
+          = link_to '↓', move_lower_admins_item_path(item), data: { "turbo-method": :patch }

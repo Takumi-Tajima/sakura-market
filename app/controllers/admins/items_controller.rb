@@ -27,7 +27,7 @@ class Admins::ItemsController < Admins::ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to admins_items_path, notice: '商品の編集が完了しました', status: :see_other
+      redirect_to admins_item_path(@item), notice: '商品の編集が完了しました', status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,6 +45,6 @@ class Admins::ItemsController < Admins::ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :published, :item_img)
+    params.require(:item).permit(:name, :price, :description, :display, :item_img)
   end
 end

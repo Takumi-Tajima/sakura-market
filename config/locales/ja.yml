@@ -5,7 +5,7 @@ ja:
         name: 商品名
         price: 価格
         description: 商品説明
-        published: 公開ステータス
+        display: 公開ステータス
         item_img: 商品画像
       user:
         confirmation_sent_at: パスワード確認送信時刻
