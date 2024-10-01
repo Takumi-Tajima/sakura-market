@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   validates :description, length: { maximum: 200 }
 
   scope :default_order, -> { order(:position) }
+  scope :visible, -> { where(display: true) }
 
   TAX = 1.10
 
