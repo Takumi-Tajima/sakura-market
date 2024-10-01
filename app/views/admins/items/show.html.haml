@@ -5,8 +5,11 @@
     %h2.mt-2
       = @item.name
     - if @item.display?
-      .t-2.badge.bg-secondary
+      .t-2.badge.bg-primary
         公開中
+    - else
+      .t-2.badge.bg-secondary
+        非公開
     .mt-2
       = price_with_tax(@item)
     .mt-2

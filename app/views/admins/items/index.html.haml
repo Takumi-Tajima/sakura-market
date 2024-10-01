@@ -22,7 +22,10 @@
           = item.description
         %td
           - if item.display?
-            %span.badge.bg-secondary
+            %span.badge.bg-primary
               公開中
+          - else
+            %span.badge.bg-secondary
+              非公開
         %td
           = link_to '詳細', admins_item_path(item)
