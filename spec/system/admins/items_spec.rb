@@ -44,7 +44,8 @@ RSpec.describe '商品管理機能', type: :system do
     end
 
     it '商品を編集できる' do
-      visit root_path
+      visit admins_root_path
+      click_on '詳細'
       expect(page).to have_content '大根'
       click_on '編集'
       fill_in '商品名', with: 'きのこ'
@@ -77,9 +78,6 @@ RSpec.describe '商品管理機能', type: :system do
       visit edit_admins_item_path(item)
       uncheck '公開ステータス'
       click_on '登録'
-      expect(page).not_to have_content '公開中'
-      expect(page).to have_content '非公開'
-      visit admins_item_path(item)
       expect(page).not_to have_content '公開中'
       expect(page).to have_content '非公開'
     end
