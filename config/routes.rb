@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         patch :move_lower, to: 'items/positions#move_lower'
       end
     end
+    resources :users, only: %i[index]
   end
   devise_for :admins
 end

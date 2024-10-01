@@ -10,19 +10,17 @@ RSpec.describe '商品の並び順', type: :system do
   end
 
   it '商品の順番を並び替えることができること' do
-    visit root_path
-    cards = all('.card').map(&:text)
-    expect(cards[0]).to have_content '大根'
-    expect(cards[1]).to have_content 'にんじん'
-    visit admins_item_path(item1)
-    within '.item-footer' do
-      expect(page).to have_content '1'
-      click_on '下へ'
-      expect(page).to have_content '2'
+    visit admins_root_path
+    trows = all('tr').map(&:text)
+    expect(trows[1]).to have_content '大根'
+    expect(trows[2]).to have_content 'にんじん'
+    item_row = page.find('table tr', text: '大根')
+    within(item_row) do
+      click_on '↓'
     end
-    visit root_path
-    cards = all('.card').map(&:text)
-    expect(cards[0]).to have_content 'にんじん'
-    expect(cards[1]).to have_content '大根'
+    visit admins_root_path
+    trows = all('tr').map(&:text)
+    expect(trows[1]).to have_content 'にんじん'
+    expect(trows[2]).to have_content '大根'
   end
 end
