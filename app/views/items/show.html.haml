@@ -1,6 +1,3 @@
--# TODO:リンクを変える
-= link_to 'カートに追加', root_path, class: 'btn btn-primary'
-
 .row.mt-4
   .col-md-6
     = item_img_tag(@item, :display)
@@ -11,3 +8,8 @@
       = price_with_tax(@item)
     .mt-2
       = @item.description
+
+= simple_form_for(@cart_item, url: cart_items_path) do |f|
+  = f.input :item_id, as: :hidden, input_html: { value: @item.id }
+  = f.input :quantity
+  = f.button :submit, 'カートに入れる'
