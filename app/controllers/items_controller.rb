@@ -5,5 +5,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.visible.find(params[:id])
+    @cart_item = @item.cart_items.build
   end
 end
