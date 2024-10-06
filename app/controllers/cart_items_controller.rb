@@ -8,7 +8,7 @@ class CartItemsController < ApplicationController
     @cart_item = current_user.cart_items.build(item_params)
 
     if @cart_item.save
-      redirect_to items_path, notice: 'カートに追加'
+      redirect_to items_path, notice: 'カートに追加しました'
     else
       render item_path(@cart_item.item_id), status: :unprocessable_entity
     end
