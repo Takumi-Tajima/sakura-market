@@ -9,7 +9,4 @@
     .mt-2
       = @item.description
 
-= simple_form_for(@cart_item, url: cart_items_path) do |f|
-  = f.input :item_id, as: :hidden, input_html: { value: @item.id }
-  = f.input :quantity
-  = f.button :submit, 'カートに入れる'
+= render 'cart_items/cart_button', cart_item: @cart_item, item: @item
