@@ -2,5 +2,7 @@ class CartItem < ApplicationRecord
   belongs_to :user
   belongs_to :item
 
-  scope :default_order, -> { order(:created_at) }
+  validate :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+  scope :ordered_by_creation, -> { order(:created_at) }
 end
