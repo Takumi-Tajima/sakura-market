@@ -27,4 +27,27 @@ RSpec.describe 'カート機能', type: :system do
     end.to change(CartItem, :count).by(-1)
     expect(page).not_to have_content 'きゅうり'
   end
+
+  context '同じ商品を追加した場合' do
+    before do
+      visit item_path(item)
+      fill_in '個数',	with: '5'
+      click_on 'カートに入れる'
+    end
+
+    it 'カート内の商品の個数が増えること' do
+      visit cart_items_path
+      expect(page).to have_content 'きゅうり'
+      expect(page).to have_content '5'
+      visit item_path(item)
+      fill_in '個数',	with: '3'
+      expect do
+        click_on 'カートに入れる'
+        expect(page).to have_content 'カートに追加しました'
+      end.not_to change(CartItem, :count)
+      visit cart_items_path
+      expect(page).to have_content 'きゅうり'
+      expect(page).to have_content '8'
+    end
+  end
 end
