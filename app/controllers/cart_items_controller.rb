@@ -5,12 +5,11 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = current_user.cart_items.build(item_params)
-
-    if @cart_item.save
+    @cart_item = CartItem.add_or_update(current_user, cart_item_params[:item_id], cart_item_params[:quantity])
+    if @cart_item.persisted?
       redirect_to items_path, notice: 'カートに追加しました'
     else
-      render item_path(@cart_item.item_id), status: :unprocessable_entity, alert: 'カート追加に失敗しました'
+      redirect_to item_path(item_params[:item_id]), alert: 'カートに追加できませんでした'
     end
   end
 
@@ -22,7 +21,7 @@ class CartItemsController < ApplicationController
 
   private
 
-  def item_params
+  def cart_item_params
     params.require(:cart_item).permit(:quantity, :item_id)
   end
 end
