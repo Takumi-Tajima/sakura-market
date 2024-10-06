@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @cart_items = current_user.cart_items.eager_load(:item).default_order
+    @cart_items = current_user.cart_items.eager_load(:item).ordered_by_creation
   end
 
   def create
@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
     if @cart_item.save
       redirect_to items_path, notice: 'カートに追加しました'
     else
-      render item_path(@cart_item.item_id), status: :unprocessable_entity
+      render item_path(@cart_item.item_id), status: :unprocessable_entity, alert: 'カート追加に失敗しました'
     end
   end
 
