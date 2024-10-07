@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users,
              controllers: { registrations: 'users/registrations' }
   resources :items, only: %i[index show]
+  resources :cart_items, only: %i[index create destroy]
   namespace :admins do
     root 'items#index'
     resources :items, only: %i[index show new create edit update destroy] do

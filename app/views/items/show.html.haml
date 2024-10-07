@@ -1,6 +1,3 @@
--# TODO:リンクを変える
-= link_to 'カートに追加', root_path, class: 'btn btn-primary'
-
 .row.mt-4
   .col-md-6
     = item_img_tag(@item, :display)
@@ -11,3 +8,5 @@
       = price_with_tax(@item)
     .mt-2
       = @item.description
+
+= render 'cart_items/cart_button', cart_item: @cart_item, item: @item
