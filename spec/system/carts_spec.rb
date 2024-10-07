@@ -19,8 +19,8 @@ RSpec.describe 'カート機能', type: :system do
     within '.navbar' do
       click_on 'カート'
     end
-    expect(page).to have_content 'きゅうり'
-    expect(page).to have_content '3'
+    expect(page).to have_css('div.col', text: 'きゅうり')
+    expect(page).to have_css('div.col', text: '3')
     expect do
       click_on '削除'
       expect(page).to have_content 'カートから商品が削除されました。'
