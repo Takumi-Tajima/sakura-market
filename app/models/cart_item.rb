@@ -17,4 +17,8 @@ class CartItem < ApplicationRecord
     cart_item.save
     cart_item
   end
+
+  def price_with_quantity
+    BigDecimal(quantity) * item.price_with_tax
+  end
 end

@@ -4,4 +4,8 @@
       .card-body
         %h3.h5.card-title= cart_item.item.name
         %p=cart_item.quantity
+        %p=price_with_tax(cart_item.item)
         = link_to '削除', cart_item_path(cart_item), data: { turbo_method: :delete }, class: 'btn btn-outline-danger'
+
+.row
+  = total_price_with_tax(@cart_items)
